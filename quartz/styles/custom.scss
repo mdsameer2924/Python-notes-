@@ -1,0 +1,64 @@
+@use "./variables.scss" as *;
+
+// 1. HYPERLINK TEXT OPTIMIZATION
+a.internal {
+  background-color: transparent !important;
+  color: #a394f0 !important; 
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    background-color: transparent !important;
+    color: #c084fc !important; 
+    text-decoration: underline;
+  }
+}
+
+// 2. ABSOLUTE CANVAS ENGINE OVERRIDES
+:root,
+body,
+body[data-theme="dark"],
+[data-theme="dark"],
+.theme-dark,
+.theme-dark.theme-dark {
+  // Force the canvas engine to draw nodes in whitish-grey and lines in crisp grey
+  --secondary: #ebebec !important;       // Main nodes (Whitish-grey)
+  --lightgray: #444446 !important;       // Connection lines (Subtle grey)
+  --gray: #ffffff !important;            // Hovered node connections (Glowing white)
+  --dark: #ffffff !important;            // Hovered node text titles
+  --tertiary: #a394f0 !important;        // Visited/special nodes
+}
+
+// 3. GRAPH WIDGET CONTAINER STYLING
+.graph {
+  background-color: transparent !important;
+  opacity: 1 !important;
+  display: block !important;
+
+  .graph-label {
+    fill: #ebebec !important; 
+    opacity: 0.8 !important;            
+    font-size: 11px !important;
+    font-weight: 500;
+  }
+
+  canvas {
+    display: block !important;
+    opacity: 1 !important;   
+    filter: drop-shadow(0 0 1px rgba(0,0,0,0.5)) !important;
+  }
+}
+
+
+
+// /* Force node size to stay constant */
+
+// .graph circle {
+//   r: 20px !important; /* Adjust this value to your preferred size */
+// }
+
+// /* Force line thickness to stay constant */
+// .graph line {
+//   stroke-width: 3px !important; /* Adjust this value for thickness */
+// }
+
